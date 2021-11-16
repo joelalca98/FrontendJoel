@@ -1,0 +1,42 @@
+<div class="card mat-elevation-z0">
+    <mat-card >
+      <h1>Sign Up</h1>
+      <form class="signupform" [formGroup]="signUpForm">
+        <div class="fields">
+          <mat-form-field appearance="legacy">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name"/>
+            <mat-error *ngIf="signUpForm.controls.name.hasError('required')">Name is required</mat-error>
+          </mat-form-field>
+  
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error *ngIf="signUpForm.controls.email.hasError('required')"> Email is required </mat-error>
+            <mat-error *ngIf="signUpForm.controls.email.hasError('email')">Mos be a valid email</mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password"/>
+            <mat-error *ngIf="signUpForm.controls.password.hasError('required')"> Password is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput formControlName="confirmationPassword"type="password"/>
+            <mat-error *ngIf="signUpForm.controls.confirmationPassword.hasError('required')"> Confirmation password is required</mat-error>
+            <mat-error *ngIf="passwordsMissmatch()"> Passwords must match</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="buttons">
+          <button mat-raised-button color="primary" >
+            Sign up
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
